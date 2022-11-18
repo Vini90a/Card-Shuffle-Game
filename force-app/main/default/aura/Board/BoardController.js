@@ -5,6 +5,6 @@
         component.set('v.words', words);
         //buscando a palavra vencedora
         const winWord = helper.getWinWord(words);
-        component.set('v.winWord', winWord);
+        component.set('v.winWord', winWord.toUpperCase());
     }
 })
