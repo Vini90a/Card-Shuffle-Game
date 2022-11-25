@@ -7,9 +7,9 @@
 
         //if gameMode != de null and hard mode
         //get the number of columns of the game
-        if (gameMode && gameMode === 'hard') {
+        if (gameMode && gameMode === "Hard") {
             column = 6;
-        }else if (gameMode === 'medium'){
+        }else if (gameMode === "Medium"){
             column = 4;
         }else{
             column = 3;

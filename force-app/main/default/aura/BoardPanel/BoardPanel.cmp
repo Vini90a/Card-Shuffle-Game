@@ -12,7 +12,7 @@
                 <lightning:combobox 
                     name="gameMode" 
                     label="Game Mode" 
-                    value="inProgress" 
+                    value="null"
                     placeholder="Select Game Mode" 
                     aura:id="gameMode"
                     variant="label-hidden"
@@ -23,9 +23,13 @@
             </lightning:layoutItem>       
             <lightning:layoutItem padding="around-small">
                 <lightning:button label="Reshuffle" title="Reshuffle" onclick="{!c.reshuffleClicked}"/>
-            </lightning:layoutItem>
+            </lightning:layoutItem>           
         </lightning:layout>
-        Selected Mode Is: {!v.selectedGameMode}         
+        <aura:if isTrue="{! (v.selectedGameMode != null)}">
+            <lightning:layoutItem size="12">
+                <c:Board mode="{!v.selectedGameMode}"></c:Board>
+            </lightning:layoutItem>
+        </aura:if>
     </lightning:card>
 </aura:component>
 
