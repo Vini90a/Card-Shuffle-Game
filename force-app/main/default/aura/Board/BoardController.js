@@ -24,5 +24,25 @@
         //buscando a palavra vencedora
         const winWord = helper.getWinWord(words);
         component.set('v.winWord', winWord.toUpperCase());
+    },
+
+    blockClickHandler : function (component, event, helper){
+
+        //get event value
+        const value = event.getParam("value");
+        //get clickCount value
+        const clickCount = component.get("v.clickCount") + 1;
+        if (value === component.get("v.winWord")){
+            //user has won
+            component.set("v.result", "YOU WIN");
+            //window.alert("YOU WIN");            
+            helper.disableBoard(component);
+        }else if (clickCount === 3){
+            //user has lost
+            component.set("v.result", "YOU LOSE");
+            //window.alert("YOU LOSE"); 
+            helper.disableBoard(component);           
+        }
+        component.set("v.clickCount", clickCount);
     }
-})
+});
